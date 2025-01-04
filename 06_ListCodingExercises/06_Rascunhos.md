@@ -126,8 +126,42 @@ eu debuguei o código. As partes mais difíceis de entender foram:
 Se o elemento atual é maior que max2 mas diferente de max1, atualiza max2. Atribui a max2 o valor atual já que esse é o segundo maior até o momento.
 
 
+7. `Remove Duplicates`
 
+```python
+def remove_duplicates(arr):
+    # TODO
+    arr_copy: list[int] = []
+    for number in arr:
+        if number not in arr_copy:
+            arr_copy.append(number)      
+    return arr_copy
+```
 
+É mais simples do que eu pensava, apesar de não ter conseguido. Vale muito a pena usar condição negativa. Apesar de simples, é uma solução O(N²) e O(N) em tempo e espaço, respectivamente. A solução ótima:
+
+```python
+def remove_duplicates(lst):
+    unique_lst = []
+    seen = set()
+    for item in lst:
+        if item not in seen:  # Verifica no conjunto (O(1))
+            unique_lst.append(item)
+            seen.add(item)
+    return unique_lst
+
+```
+- Complexidade Temporal: O acesso e a inserção em um conjunto `(set)` têm custo O(1) em média. Para cada elemento no array lst (tamanho n), realizamos uma verificação e uma adição ao conjunto. __Custo total: O(n).__
+- Complexidade Espacial:
+Utiliza um conjunto adicional seen e uma lista adicional unique_lst, ambas no pior caso armazenando até n elementos.
+__Custo espacial: O(n)__
+
+8. Praticamente utilizei a mesma lógica do exercício número 2.  
+9. Utilizando `sets` ficou bem fácil. Poderia ser feito em uma linha:
+´´´pythonMinha implementação é O(N) ambas.
+
+´´´python
+len(nums) != len(set(nums))
 
 
 
