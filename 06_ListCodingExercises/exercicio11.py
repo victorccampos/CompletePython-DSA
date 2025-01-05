@@ -19,5 +19,5 @@ matrix = [[1,2,3],  # [7,4,1]
           [7,8,9]]  # [1,2,3]
 
 rotate(matrix=matrix)
-print(matrix)
+print(matrixw)
    
